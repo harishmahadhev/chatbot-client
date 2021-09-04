@@ -63,10 +63,6 @@ class Chatbot extends Component {
   }
 
   async df_client_call(request) {
-    console.log(
-      "cant read from env variable",
-      process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY
-    );
     try {
       if (
         process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY === undefined ||
@@ -90,7 +86,7 @@ class Chatbot extends Component {
       const { data } = await axios.post(
         "https://dialogflow.googleapis.com/v2/projects/" +
           process.env.REACT_APP_GOOGLE_PROJECT_ID +
-          +"/agent/sessions" +
+          +"/agent/sessions/" +
           process.env.REACT_APP_SESSION_ID +
           Cookies.get("userId") +
           ":detectIntent",
@@ -207,6 +203,10 @@ class Chatbot extends Component {
   }
 
   async componentDidMount() {
+    console.log(
+      "cant read from env variable",
+      process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY
+    );
     this.df_event_query("Welcome");
     if (window.location.pathname === "/shop" && !this.state.shopWelcomeSent) {
       await this.resolveAfterXSeconds(2);
