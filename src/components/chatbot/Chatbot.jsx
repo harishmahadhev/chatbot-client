@@ -63,6 +63,10 @@ class Chatbot extends Component {
   }
 
   async df_client_call(request) {
+    console.log(
+      "cant read from env variable",
+      process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY
+    );
     try {
       if (
         process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY === undefined ||
