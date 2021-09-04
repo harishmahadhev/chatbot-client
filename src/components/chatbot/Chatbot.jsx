@@ -69,7 +69,10 @@ class Chatbot extends Component {
         process.env.REACT_APP_GOOGLE_PROJECT_ID === undefined ||
         process.env.REACT_APP_SESSION_ID === undefined
       ) {
-        console.log("cant read from env variable");
+        console.log(
+          "cant read from env variable",
+          process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY
+        );
         throw Error;
       }
 
