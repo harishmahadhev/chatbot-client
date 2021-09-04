@@ -71,7 +71,9 @@ class Chatbot extends Component {
       ) {
         console.log(
           "cant read from env variable",
-          process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY
+          process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY,
+          process.env.REACT_APP_GOOGLE_PROJECT_ID,
+          process.env.REACT_APP_SESSION_ID
         );
         throw Error;
       }
@@ -205,7 +207,9 @@ class Chatbot extends Component {
   async componentDidMount() {
     console.log(
       "cant read from env variable",
-      process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY
+      process.env.REACT_APP_DIALOGFLOW_CLIENT_KEY,
+      process.env.REACT_APP_GOOGLE_PROJECT_ID,
+      process.env.REACT_APP_SESSION_ID
     );
     this.df_event_query("Welcome");
     if (window.location.pathname === "/shop" && !this.state.shopWelcomeSent) {
